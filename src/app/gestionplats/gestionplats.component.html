@@ -1,0 +1,36 @@
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px">
+<div fxFlex>
+<div>
+<h3>Tableau de bord : Gestion des plats</h3>
+<hr>
+<button mat-raised-button color="warn"(click)="ajouter()">Ajouter un plat</button>
+</div>
+</div>
+<div fxFlex>
+<table>
+<thead>
+<tr>
+<th> Nom </th>
+<th> Catégorie</th>
+<th> Type</th>
+<th> Prix</th>
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let plat of plats">
+    <td>{{plat.nom}}</td>
+    <td> {{plat.categorie}} </td>
+    <td> {{plat.label}} </td>
+    <td> {{plat.prix}} </td>
+    <td>
+    <button mat-raised-button color="primary" (click)="onmodifier(plat)">Modifier</button>
+    <button mat-raised-button (click)="onsupprimer(plat)">Supprimer</button>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>

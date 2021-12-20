@@ -1,0 +1,29 @@
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px">
+<div fxFlex>
+<div>
+<h3>Menu</h3>
+<hr>
+</div>
+</div>
+<div fxFlex>
+<mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-tile *ngFor="let plat of plats" [routerLink]="['/platdetail', plat.id]">
+        <img height="200px" src="{{BaseURL + plat.image}}" alt="{{BaseURL + plat.nom}}">
+<mat-grid-tile-footer>
+<h1>{{plat.nom | uppercase}}</h1>
+</mat-grid-tile-footer>
+</mat-grid-tile>
+</mat-grid-list>
+
+</div>
+<div [hidden]="plats || errMess">
+    <h4> Chargement en cours. . . Attendez SVP</h4>
+    <mat-spinner></mat-spinner>
+</div>
+    <div fxFlex *ngIf="errMess">
+        <h2>Erreur</h2>
+        <h4> {{errMess}} </h4>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+  <div fxFlex>
+        <div> <h3>Contactez nous</h3> <hr></div>
+  </div>
+  <div fxFlex>
+        <h3>Information sur la Location </h3> 
+        <div fxLayout="column" fxLayout.gt-sm="row">
+          <div fxFlex="50" fxFlexOffset="20px">
+            <h4>Addresse</h4>
+            <address style="text-size: 80%">
+              Route Gremda km 4 <br> Imm el Yessmin 1 ère étage<br> Sfax, Tunisie<br>
+                <i class="fa fa-phone"></i>: +216 25 555 556<br>
+                <i class="fa fa-fax"></i>: +216 20 555 555<br>
+                <i class="fa fa-envelope"></i>:
+                <a href="mailto:corail@restau.tn">restaurant@gmail.com</a>
+            </address>
+            <p></p>
+            <div>
+                <a mat-raised-button href="tel:+25654256"><i class="fa fa-phone"></i> Call</a>
+                <a mat-raised-button><i class="fa fa-skype"></i> Skype</a>
+                <a mat-raised-button href="mailto:corail@restau.tn"><i class="fa fa-envelope-o"></i> Email</a>
+            </div>
+          </div>    
+       </div>
+    </div>
+    <div fxFlex>
+     <form [formGroup]="feedbackForm"  (ngSubmit)="onSoumission()" *ngIf="!soumis">
+      <h3>Envoyez-nous vos commentaires</h3>
+      <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
+      <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Prénom</mat-label>
+              <input matInput formControlName="prenom"  >
+              <mat-error *ngIf="VerifErreur('prenom', 'required')">Le prénom est obligatoire !</mat-error>
+              <mat-error *ngIf="VerifErreur('prenom', 'minlength')">Le prénom doit comporter au moins 3 caractères !</mat-error>
+              <mat-error *ngIf="VerifErreur('prenom', 'maxlength')">Le prénom doit comporter moins de 20 caractères !</mat-error>
+          </mat-form-field>
+      </p>
+      <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Nom</mat-label>
+              <input matInput  formControlName="nom" >
+              <mat-error *ngIf="VerifErreur('nom', 'required')">Le nom est obligatoire !</mat-error>
+              <mat-error *ngIf="VerifErreur('nom', 'minlength')">Le nom doit comporter au moins 3 caractères !</mat-error>
+              <mat-error *ngIf="VerifErreur('nom', 'maxlength')">Le nom doit comporter moins de 20 caractères !</mat-error>
+            </mat-form-field>
+      </p>   
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Tel.</mat-label>
+          <input matInput  formControlName="tel">
+          <mat-error *ngIf="VerifErreur('tel', 'required')">Le numéro de téléphone est obligatoire !</mat-error>
+          <mat-error *ngIf="VerifErreur('tel', 'pattern')">Le numéro de téléphone doit contenir seulement des chiffres !</mat-error>
+        </mat-form-field>
+      </p>   
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput  formControlName="email">
+          <mat-error *ngIf="VerifErreur('email', 'required')">L'email est obligatoire !</mat-error>
+          <mat-error *ngIf="VerifErreur('email', 'email')">L'email n'est pas dans un format valide !</mat-error>
+        </mat-form-field>
+      </p>  
+      <p>
+        <mat-form-field>
+          <textarea matInput formControlName="message" placeholder="Votre Feedback" rows=12></textarea>
+        </mat-form-field>
+      </p>
+      <button  mat-raised-button type="submit"  [disabled]="!feedbackForm.valid" color="primary">Soumettre</button> 
+    </form>
+  </div>
+</div>

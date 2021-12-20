@@ -1,0 +1,40 @@
+<div class="container" fxLayout="column" >
+    <div fxFlex >
+    <div> <h3>Modifier un plat </h3> <hr></div>
+    <form [formGroup]="modifForm" (ngSubmit)="onSoumission()" *ngIf="!soumis">
+    <p> <mat-form-field appearance="outline">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName= "nom" >
+    <mat-error *ngIf="VerifErreur('nom', 'required')">Le nom du plat est obligatoire !</mat-error>
+    </mat-form-field> </p>
+    <p> <mat-form-field appearance="outline" >
+    <mat-label>Catégorie</mat-label>
+    <input matInput formControlName="categorie" >
+    <mat-error *ngIf="VerifErreur('categorie', 'required')">La catégorie du plat est obligatoire !</mat-error>
+    </mat-form-field> </p>
+    <p> <b>Plat spécial ?</b> <br><br>
+        <mat-radio-group formControlName="special">
+        <mat-radio-button value="oui">Oui</mat-radio-button>
+        <mat-radio-button value="non">Non</mat-radio-button>
+        </mat-radio-group> </p>
+        <p> <mat-form-field appearance="outline">
+        <mat-label>Type</mat-label>
+        <input matInput formControlName="label">
+        </mat-form-field> </p>
+        <p> <mat-form-field appearance="outline">
+        <mat-label>Prix</mat-label>
+        <input matInput formControlName="prix" >
+        <mat-error *ngIf="VerifErreur('prix', 'required')">Le prix est obligatoire !</mat-error>
+        <mat-error *ngIf="VerifErreur('prix', 'pattern')">Le prix doit contenir seulement des chiffres !</mat-error>
+        </mat-form-field>
+        </p>
+<p>
+<mat-form-field>
+<textarea matInput formControlName="description" placeholder="Ajouter une description" rows=5></textarea>
+</mat-form-field>
+</p>
+<button mat-raised-button type="submit" [disabled]="!modifForm.valid" color="primary">Modifier</button>
+<button mat-raised-button mat-dialog-close>Annuler</button>
+</form>
+</div>
+</div>

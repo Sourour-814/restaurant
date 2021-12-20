@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <span>
+    <img src="/assets/images/logo.png" height=30 width=41>
+    </span>
+    <a mat-button routerLink="/acceuil" routerLinkActive="active">
+    <span class="fa fa-home fa-lg"></span> Accueil</a>
+    <a mat-button routerLink="/apropos" routerLinkActive="active">
+    <span class="fa fa-info fa-lg"></span> A propos</a>
+    <a mat-button routerLink="/menu"routerLinkActive="active">
+    <span class="fa fa-list fa-lg"></span> Menu</a>
+    <a mat-button routerLink="/contact" routerLinkActive="active">
+    <span class="fa fa-address-card fa-lg"></span> Contact</a>
+    <div fxFlex></div>
+    <a mat-button (click)="authForm()">
+        <span class="fa fa-sign-in fa-lg" ></span>register</a>
+        
+    <a mat-button (click)="authForm()">
+        <span class="fa fa-sign-in fa-lg" ></span>Connexion</a>
+
+        
+    </mat-toolbar>
+<div class="container inforestau" fxLayout="row" 
+          fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.xs="start center" fxLayoutAlign.sm="start center" 
+          fxLayoutAlign.gt-sm="center center" fxLayoutGap="10px">
+          <div fxFlex fxFlex.gt-sm="50%">
+             <h1>Restaurant Le Corail</h1>
+             <p>Ce restaurant chic de la ville est l'un des meilleurs du pays pour les fruits de mer.</p>
+          </div>
+          <div fxFlex fxFlex.gt-sm="20%">
+              <img src="/assets/images/logo.png" alt="Logo" height=100 width=100>
+          </div>
+          <div fxFlex></div>
+    <div fxFlex></div>
+
+</div>

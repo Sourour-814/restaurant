@@ -1,0 +1,38 @@
+
+<mat-card>
+    <mat-toolbar color="primary">register</mat-toolbar>
+    <mat-card-content>
+    <form>
+    <table>
+    <tr>
+    <td>
+    <mat-form-field>
+    <input matInput placeholder="Utilisateur" [(ngModel)]="nomUtilisateur" name="nomUtilisateur" required>
+    </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <mat-form-field>
+    <input matInput placeholder="Utilisateur" [(ngModel)]="nomUtilisateur" name="nomUtilisateur" required>
+    </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+    <td><mat-form-field>
+    <input matInput placeholder="Mot de passe" [(ngModel)]="motPasse" type="password" name="motPasse" required>
+    </mat-form-field></td>
+    </tr>
+    <tr>
+        <td><mat-form-field>
+        <input matInput placeholder=" Confirmer votre mot de passe" [(ngModel)]="motPasse" type="password" name="motPasse" required>
+        </mat-form-field></td>
+        </tr>
+</table>
+    </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="register()" color="primary">registrer</button>
+        <button mat-raised-button mat-dialog-close>Annuler</button>
+        </mat-card-actions>
+        </mat-card>

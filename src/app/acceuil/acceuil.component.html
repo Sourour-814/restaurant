@@ -1,0 +1,45 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
+    <div [hidden]="plat || platerrMess">
+        <mat-spinner></mat-spinner> <h4> Chargement en cours. . . Attendez SVP</h4>
+        </div>
+        <div fxFlex *ngIf="platerrMess">
+                  <h2>Erreur de chargement</h2> <h4> {{platerrMess}} </h4>
+            </div>
+        
+    <mat-card *ngIf="plat" fxFlex>
+        <mat-card-header>
+            <div mat-card-avatar></div>
+            <mat-card-title>
+                <h3> {{plat.nom | uppercase}} </h3>
+            </mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{BaseURL + plat.image}}" alt="{{BaseURL + plat.nom}}">
+        <mat-card-content>
+            <p> {{plat.description}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+
+    <div [hidden]="promotion || platerrMess">
+        <mat-spinner></mat-spinner> <h4> Chargement en cours. . . Attendez SVP</h4>
+        </div>
+        <div fxFlex *ngIf="platerrMess">
+                  <h2>Erreur de chargement</h2> <h4> {{platerrMess}} </h4>
+            </div>
+
+<mat-card *ngIf="promotion" fxFlex>
+    <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>
+            <h3> {{promotion.nom | uppercase}} </h3>
+        </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src= "{{BaseURL + promotion.image}}" alt="{{BaseURL + promotion.nom}}">
+    <mat-card-content>
+        <p>{{promotion.description}} </p>
+    </mat-card-content>
+</mat-card>
+</div>
+
+
